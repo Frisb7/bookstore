@@ -1,0 +1,36 @@
+{% extends 'inventory/main.html' %}
+{% block content %}
+    <hr>
+    <h1>Add Book</h1>
+    <hr>
+    <form method="POST">
+        {% csrf_token %}
+        {% for field in form %}
+        <div class="label">
+            {{ field.label }}:
+        </div>
+        <div>
+            {{ field }}
+        </div>
+        {% endfor %}
+        <input type="Submit" class="btn btn-success" value="Add Book" id='update'>
+        <a href="{% url 'home'%}" class="btn btn-danger">Cancle</a>
+    </form>
+    <hr>
+    <style>
+        form{
+            line-height: 40px;
+        }
+        .label{
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 25px;
+        }
+        input{
+            width: 60%;
+            line-height: 25px;
+        }
+        #update{
+            width: 160px;
+        }
+    </style>
+{% endblock %}

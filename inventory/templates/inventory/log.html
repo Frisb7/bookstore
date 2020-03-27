@@ -1,0 +1,25 @@
+{% extends 'inventory/main.html' %}
+{% block content %}
+    <hr>
+    <h1>Log</h1>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">Date</th>
+            <th scope="col">User</th>
+            <th scope="col">Book Name</th>
+            <th scope="col">Book Type</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for log in logs %}
+            <tr>
+                <td>{{log.date}}</td>
+                <td>{{log.user}}</td>
+                <td>{{log.book_name}}</td>
+                <td>{{log.book_type}}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

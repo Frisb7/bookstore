@@ -1,0 +1,57 @@
+{% extends 'inventory/main.html' %}
+{% block content %}
+    <hr>
+    <h1>Inventory</h1>
+    <hr>
+    <a href="{% url 'add' %}" class="btn btn-primary" id="add">Add Book</a>
+    <hr>
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Subject</th>
+            <th scope="col">Type</th>
+            <th scope="col">Grade</th>
+            <th scope="col">Stock</th>
+            <th scope="col">Cost(OMR)</th>
+            <th scope="col">Update</th>
+            <th scope="col">Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for book in books %}
+            <tr>
+                <th scope="row">{{book.id}}</th>
+                <td>{{book.name}}</td>
+                <td>{{book.subject}}</td>
+                <td>{{book.book_type}}</td>
+                <td>{{book.garde}}</td>
+                <td>{{book.stock}}</td>
+                <td>{{book.cost}}</td>
+                <td><a href="{% url 'update' book.id %}" class="btn btn-success">Update</a></td>
+                <td><a href="{% url 'delete' book.id %}" class="btn btn-danger">Delete</a></td>
+            </tr>
+        {% endfor %}
+        <!-- <tr>
+            <th scope="row">1</th>
+            <td>Physics</td>
+            <td>Text book</td>
+            <td>12</td>
+            <td>100</td>
+            <td>1.5</td>
+            <td><a href="" class="btn btn-success">Update</a></td>
+            <td><a href="" class="btn btn-danger">Delete</a></td>
+        </tr> -->
+        </tbody>
+    </table>
+    <hr>
+    <style>
+        #add{
+            width: 100%;
+        }
+        .table{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+{% endblock %}

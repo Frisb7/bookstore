@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="{% url 'home' %}">Bookstore</a>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link" href="#">BookStore</a>
+        <a class="nav-item nav-link" href="{% url 'home' %}">Inventory</a>
+        <a class="nav-item nav-link" href="{% url 'log' %}">Log</a>
+      </div>
+    </div>
+    <div>
+      <span id="username">Hello, {{request.user}}</span>
+      <span><a href="#" id="logout">Logout</a></span>
+    </div>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+</nav>
+<style>
+  #logout{
+    color: crimson;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  #username{
+    color: white;
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+</style>
