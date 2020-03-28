@@ -52,3 +52,8 @@ class Log(models.Model) :
 
     def __str__(self):
         return(("{}: {}").format(self.user, self.book_name))
+    
+    def save(self, *args, **kwargs) :
+        book = Book.objects.filter(name=self.book_name).values('book_type').first()
+        self.book_type = book['book_type']
+        super(Log, self).save(*args, **kwargs)
