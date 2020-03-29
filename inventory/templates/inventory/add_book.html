@@ -3,7 +3,7 @@
     <hr>
     <h1>Add Book</h1>
     <hr>
-    <form method="POST">
+    <!-- <form method="POST">
         {% csrf_token %}
         {% for field in form %}
         <div class="label">
@@ -15,6 +15,62 @@
         {% endfor %}
         <input type="Submit" class="btn btn-success" value="Add Book" id='update'>
         <a href="{% url 'inventory'%}" class="btn btn-danger">Cancle</a>
+    </form> -->
+    <form method="POST">
+        {% csrf_token %}
+        <input type="hidden" name="csrfmiddlewaretoken" value="EIprgWhRQqZgC1ADczoOpPGeK3c7a7ofotGpdbH0PdkfDVUEp9USC3DkwlF5P5Xr">
+        <div class="form-group">
+            <input type="text" name="name" maxlength="100" required id="id_name" class="form-control" placeholder="Book name">
+        </div>
+        <div class="form-group">
+            <select name="subject" required id="id_subject" class="form-control">
+                <option value="" selected>Subject</option>
+                <option value="English">English</option>
+                <option value="Math">Math</option>
+                <option value="Science">Science</option>
+                <option value="Physics">Physics</option>
+                <option value="Chemistry">Chemistry</option>
+                <option value="Biology">Biology</option>
+                <option value="Computer Science">Computer Science</option>
+                <option value="Social Studies">Social Studies</option>
+                <option value="Hindi">Hindi</option>
+                <option value="Arabic">Arabic</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <select name="book_type" required id="id_book_type" class="form-control">
+                <option value="" selected>Type</option>
+                <option value="Text book">Text book</option>
+                <option value="Long note book">Long note book</option>
+                <option value="Short note book">Short note book</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <select name="grade" required id="id_grade" class="form-control">
+                <option value="" selected>Grade</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="All">All</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <input type="number" name="stock" required id="id_stock" class="form-control" placeholder="Stock">
+        </div>
+        <div class="form-group">
+            <input type="number" name="cost" step="0.001" required id="id_cost" class="form-control" placeholder="Cost">
+        </div>
+        <input type="Submit" class="btn btn-success" value="Add Book" id='add'>
+        <a href="{% url 'inventory' %}" class="btn btn-danger">Cancle</a>
     </form>
     <hr>
     <style>
@@ -29,7 +85,7 @@
             width: 60%;
             line-height: 25px;
         }
-        #update{
+        #add{
             width: 160px;
         }
     </style>

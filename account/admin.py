@@ -1,18 +1,12 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-from django.contrib.auth.forms import UserCreationForm
+from .form import AccountCreationForm
 from account.models import Account
 
 # Register your models here.
 
-class AccountCreateForm(UserCreationForm):
-
-    class Meta:
-        model = Account
-        fields = ('email', 'username', 'first_name', 'last_name', 'grno', 'garde')
-
 class AccountAdmin(UserAdmin) :
-    add_form = AccountCreateForm
+    add_form = AccountCreationForm
     list_display = ('email', 'username', 'first_name', 'last_name', 'grno', 'garde')
     search_fields = ('email', 'username', 'first_name', 'last_name', 'grno', 'garde')
     readonly_fields = ('date_joined', 'last_login')

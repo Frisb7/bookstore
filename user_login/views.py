@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
-from django.contrib.auth.forms import UserCreationForm
+from account.form import AccountCreationForm
 
 # Create your views here.
 
@@ -12,7 +12,7 @@ def loginuser(request) :
         user = authenticate(request, username=username, password=password)
         if user is not None :
             login(request, user)
-            return(redirect('inventory'))
+            return(redirect('store'))
         else :
             messages.info(request, 'Username OR Password is incorrect')
     return(render(request, 'user_login/login.html'))
@@ -22,10 +22,12 @@ def logoutuser(request) :
     return(redirect('login'))
 
 def registeruser(request) :
-    form = UserCreationForm()
+    form = AccountCreationForm()
     if request.method == 'POST' :
-        form = UserCreationForm(request.POST)
+        form = AccountCreationForm(request.POST)
         if form.is_valid() :
             form.save()
+            return(redirect('login'))
+            messages.info(request, 'User was created successfully')
     context = {'form':form}
     return(render(request, 'user_login/register.html', context))

@@ -36,9 +36,9 @@ class Book(models.Model) :
     name = models.CharField(max_length=100, unique=True)
     subject = models.CharField(max_length=100, choices=subject_choice)
     book_type = models.CharField(max_length=100, choices=type_choice)
-    garde = models.CharField(max_length=100, choices=grade_choice)
+    grade = models.CharField(max_length=100, choices=grade_choice)
     stock = models.IntegerField()
-    cost = models.DecimalField(max_digits=10, decimal_places=3)
+    cost = models.DecimalField(max_digits=5, decimal_places=3)
     
 
     def __str__(self):
