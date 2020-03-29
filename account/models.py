@@ -58,7 +58,7 @@ class Account(AbstractBaseUser):
     username = models.CharField(max_length=30, unique=True)
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
-    grno = models.IntegerField(null=False, blank=False, unique=True)
+    grno = models.IntegerField(null=False, blank=False)
     garde = models.CharField(max_length=100, choices=grade_choice)
     is_admin = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)

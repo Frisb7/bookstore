@@ -1,5 +1,5 @@
 from django.db import models
-# from django.contrib.auth.models import User
+from account.models import Account
 
 # Create your models here.
 
@@ -44,16 +44,16 @@ class Book(models.Model) :
     def __str__(self):
         return(self.name)
 
-# class Log(models.Model) :
-#     date = models.DateTimeField(auto_now_add=True)
-#     user = models.ForeignKey(User, on_delete=models.DO_NOTHING)
-#     book_name = models.ForeignKey(Book, on_delete=models.DO_NOTHING)
-#     book_type = models.CharField(max_length=100, editable=False, default='')
+class Log(models.Model) :
+    date = models.DateTimeField(auto_now_add=True)
+    user = models.ForeignKey(Account, on_delete=models.DO_NOTHING)
+    book_name = models.ForeignKey(Book, on_delete=models.DO_NOTHING)
+    book_type = models.CharField(max_length=100, editable=False, default='')
 
-#     def __str__(self):
-#         return(("{}: {}").format(self.user, self.book_name))
+    def __str__(self):
+        return(("{} | {}").format(self.user, self.book_name))
     
-#     def save(self, *args, **kwargs) :
-#         book = Book.objects.get(name=self.book_name)
-#         self.book_type = book.book_type
-#         super(Log, self).save(*args, **kwargs)
+    def save(self, *args, **kwargs) :
+        book = Book.objects.get(name=self.book_name)
+        self.book_type = book.book_type
+        super(Log, self).save(*args, **kwargs)
