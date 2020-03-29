@@ -1,8 +1,8 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Bookstore</a>
+    <a class="navbar-brand" href="{% url 'store' %}">Bookstore</a>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
-        <a class="nav-item nav-link" href="#">BookStore</a>
+        <a class="nav-item nav-link" href="{% url 'store' %}">BookStore</a>
         <a class="nav-item nav-link" href="{% url 'inventory' %}">Inventory</a>
         <a class="nav-item nav-link" href="{% url 'log' %}">Log</a>
       </div>

@@ -33,7 +33,7 @@ class Book(models.Model) :
                     ('12','12'),
                     ('All', 'All')
                     )
-    name = models.CharField(max_length=100)
+    name = models.CharField(max_length=100, unique=True)
     subject = models.CharField(max_length=100, choices=subject_choice)
     book_type = models.CharField(max_length=100, choices=type_choice)
     garde = models.CharField(max_length=100, choices=grade_choice)
@@ -54,6 +54,6 @@ class Log(models.Model) :
         return(("{}: {}").format(self.user, self.book_name))
     
     def save(self, *args, **kwargs) :
-        book = Book.objects.filter(name=self.book_name).values('book_type').first()
-        self.book_type = book['book_type']
+        book = Book.objects.get(name=self.book_name)
+        self.book_type = book.book_type
         super(Log, self).save(*args, **kwargs)

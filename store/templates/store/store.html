@@ -1,21 +1,4 @@
 {% extends 'store/main.html' %}
 {% block content %}
-    <hr>
-    <h1>Bookstore</h1>
-    <hr>
-    <div class="row" id="card">
-        {% for book in books %}
-            <div class="col-sm-4">
-                <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">{{book.name}}: {{book.book_type}}</h5>
-                        <p class="card-text">Grade: {{book.garde}}</p>
-                        <p class="card-text">In Cart: </p>
-                        <p class="card-text"><b>{{book.cost}} OMR</b></p>
-                        <a href="#" class="btn btn-primary">Add to cart</a>
-                    </div>
-                </div>
-            </div>
-        {% endfor %}
-    </div>
+    <h1>Store</h1>
 {% endblock %}
