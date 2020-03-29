@@ -43,8 +43,8 @@ def delete_book(request, pk) :
     context = {'book':book}
     return(render(request, 'inventory/delete_book.html', context))
 
-@login_required(login_url='login')
-def log(request) :
-    logs = Log.objects.all()
-    context = {'logs':logs}
-    return(render(request, 'inventory/log.html', context))
+# @login_required(login_url='login')
+# def log(request) :
+#     logs = Log.objects.all()
+#     context = {'logs':logs}
+#     return(render(request, 'inventory/log.html', context))
