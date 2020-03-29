@@ -58,7 +58,7 @@ class Account(AbstractBaseUser):
     username = models.CharField(max_length=30, unique=True)
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
-    grno = models.IntegerField(null=False, blank=False)
+    grno = models.IntegerField(null=False, unique=True)
     garde = models.CharField(max_length=100, choices=grade_choice)
     is_admin = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
@@ -71,7 +71,7 @@ class Account(AbstractBaseUser):
     objects = Manager()
 
     def __str__(self) :
-        return(("{}: {}").format(self.first_name, self.email))
+        return(self.first_name)
     
     def has_perm(self, perm, obj=None) :
         return(self.is_admin)
