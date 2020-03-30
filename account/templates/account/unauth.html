@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Unauthorised</title>
+</head>
+<body>
+    <p>You are not authorised</p>
+    <a href="{% url 'store' %}">Store</a>
+    <br>
+    {% if request.user.is_staff or request.user.is_admin or request.user.is_superuser %}
+        <a href="{% url 'inventory' %}">Inventory</a>
+    {% endif %}
+</body>
+</html>

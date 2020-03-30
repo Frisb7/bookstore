@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import User
+from account.models import Account
 from inventory.models import Book
 from django.db.models.signals import post_save
 
@@ -11,7 +11,7 @@ from django.db.models.signals import post_save
 #                     ('Short note', 'Short note'),
 #                     ('Lab record', 'Lab Record'),
 #                     ('Graph book', 'Graph book'))
-#     user = models.ForeignKey(User, on_delete=models.DO_NOTHING)
+#     user = models.ForeignKey(Account, on_delete=models.CASCADE)
 #     book_name = models.ForeignKey(Book, on_delete=models.CASCADE)
 #     book_type = models.CharField(max_length=100, choices=type_choice)
 #     quantity = models.IntegerField()
