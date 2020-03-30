@@ -18,19 +18,19 @@
 					<form method="POST" action="" >
                         {% csrf_token %}
                         <div class="input-control mb-3">
-                            <input type="email" name="email" maxlength="60" autofocus required id="id_email" class="form-control" placeholder="Email" data-toggle="tooltip" data-placement="top" title="example@example.com">
+                            <input value="{{form.email.value}}" type="email" name="email" maxlength="60" autofocus required id="id_email" class="form-control" placeholder="Email" data-toggle="tooltip" data-placement="top" title="example@example.com">
                         </div>
                         <div class="input-control mb-3">
-                            <input type="text" name="username" maxlength="30" required id="id_username" class="form-control" placeholder="Username" data-toggle="tooltip" data-placement="top" title="Username">
+                            <input value="{{form.username.value}}" type="text" name="username" maxlength="30" required id="id_username" class="form-control" placeholder="Username" data-toggle="tooltip" data-placement="top" title="Username">
                         </div>
                         <div class="input-control mb-3">
-                            <input type="text" name="first_name" maxlength="30" required id="id_first_name" class="form-control" placeholder="First name" data-toggle="tooltip" data-placement="top" title="First name">
+                            <input value="{{form.first_name.value}}" type="text" name="first_name" maxlength="30" required id="id_first_name" class="form-control" placeholder="First name" data-toggle="tooltip" data-placement="top" title="First name">
                         </div>
                         <div class="input-control mb-3">
-                            <input type="text" name="last_name" maxlength="30" required id="id_last_name" class="form-control" placeholder="Last name" data-toggle="tooltip" data-placement="top" title="Last name">
+                            <input value="{{form.last_name.value}}" type="text" name="last_name" maxlength="30" required id="id_last_name" class="form-control" placeholder="Last name" data-toggle="tooltip" data-placement="top" title="Last name">
                         </div>
                         <div class="input-control mb-3">
-                            <input type="number" name="grno" required id="id_grno" class="form-control" placeholder="Grno" data-toggle="tooltip" data-placement="top" title="Grno must be unique, ONLY ENTER YOUR OWN GRNO!">
+                            <input value="{{form.grno.value}}" type="number" name="grno" required id="id_grno" class="form-control" placeholder="Grno" data-toggle="tooltip" data-placement="top" title="Grno must be unique, ONLY ENTER YOUR OWN GRNO!">
                         </div>
                         <div class="input-control mb-3">
                             <select name="garde" required id="id_garde" class="form-control" data-toggle="tooltip" data-placement="top" title="Grade">
@@ -54,6 +54,11 @@
                         </div>
                         <div class="input-control mb-3">
                             <input type="password" name="password2" autocomplete="new-password" required id="id_password2" class="form-control" placeholder="Confirm Password" data-toggle="tooltip" data-placement="top" title="Must match the previous password">
+                        </div>
+                        <div class="alert alert-danger" role="alert">
+                            {% for message in messages %}
+                                <li>{{message}}</li>
+                            {% endfor %}
                         </div>
                         <div class="d-flex justify-content-center mt-3 login_container">
                             <input class="btn login_btn" type="submit" value="Register" data-toggle="tooltip" data-placement="top" title="Check before submiting">
@@ -135,5 +140,12 @@
         color: #fff;
         padding: 10px;
         margin-top: 10px;
+    }
+    .alert{
+        width: 115%;
+        margin: auto;
+        margin-top: 20px;
+        text-align: center;
+        margin-left: -30px;
     }
 </style>
