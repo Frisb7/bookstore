@@ -3,19 +3,6 @@
     <hr>
     <h1>Add Book</h1>
     <hr>
-    <!-- <form method="POST">
-        {% csrf_token %}
-        {% for field in form %}
-        <div class="label">
-            {{ field.label }}:
-        </div>
-        <div>
-            {{ field }}
-        </div>
-        {% endfor %}
-        <input type="Submit" class="btn btn-success" value="Add Book" id='update'>
-        <a href="{% url 'inventory'%}" class="btn btn-danger">Cancle</a>
-    </form> -->
     <form method="POST">
         {% csrf_token %}
         <input type="hidden" name="csrfmiddlewaretoken" value="EIprgWhRQqZgC1ADczoOpPGeK3c7a7ofotGpdbH0PdkfDVUEp9USC3DkwlF5P5Xr">
