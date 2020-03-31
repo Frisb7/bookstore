@@ -22,13 +22,15 @@ def store(request) :
 def cart(request) :
     user = request.user
     cart = Cart.objects.filter(user=user)
+    costs = Cart.objects.filter(user=user).values('total_cost')
+    sub_total = 0.000
     if len(cart) != 0 :
-        total_cost = cart.aggregate(Sum('total_cost'))
-        total_cost = str(total_cost['total_cost__sum'])[:-11]
+        for cost in costs :
+            sub_total += float(cost['total_cost'])
     else :
-        total_cost = 0.000
-    print(request.user)
-    context = {'cart':cart, 'total_cost':total_cost}
+        sub_total = 0.000
+    sub_total = ('{:.3f}'.format(sub_total))
+    context = {'cart':cart, 'sub_total':sub_total}
     return(render(request, 'store/cart.html', context))
 
 @login_required(login_url='login')
@@ -43,3 +45,18 @@ def remove_from_cart(request, pk) :
     cart = Cart.objects.get(book_name_id=pk, user=request.user)
     cart.delete()
     return(redirect('store'))
+
+@login_required(login_url='login')
+def receipt(request) :
+    user = request.user
+    cart = Cart.objects.filter(user=user)
+    costs = Cart.objects.filter(user=user).values('total_cost')
+    sub_total = 0.000
+    if len(cart) != 0 :
+        for cost in costs :
+            sub_total += float(cost['total_cost'])
+    else :
+        sub_total = 0.000
+    sub_total = ('{:.3f}'.format(sub_total))
+    context = {'cart':cart, 'sub_total':sub_total}
+    return(render(request, 'store/receipt.html', context))

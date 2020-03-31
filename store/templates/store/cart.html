@@ -2,32 +2,53 @@
 {% block content %}
     <h1>Cart</h1>
     <hr>
-    <table class="table table-striped">
-        <thead>
-        <tr>
-            <th scope="col">Book name</th>
-            <th scope="col">Book type</th>
-            <th scope="col">Quantity</th>
-            <th scope="col">Cost(Per Book)</th>
-            <th scope="col">Cost</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for book in cart %}
+    <div class="row">
+        <table class="table table-striped col-9">
+            <thead>
             <tr>
-                <td>{{book.book_name}}</td>
-                <td>{{book.book_type}}</td>
-                <td>{{book.quantity}}</td>
-                <td>{{book.cost}}</td>
-                <td>{{book.total_cost}}</td>
+                <th scope="col">Book name</th>
+                <th scope="col">Book type</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Cost(Per Book)</th>
+                <th scope="col">Cost</th>
             </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-    {{total_cost}}
+            </thead>
+            <tbody>
+            {% for book in cart %}
+                <tr>
+                    <td>{{book.book_name}}</td>
+                    <td>{{book.book_type}}</td>
+                    <td>{{book.quantity}}</td>
+                    <td>{{book.cost}}</td>
+                    <td>{{book.total_cost}}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <div class="col-3">
+            <h3>Check Out</h3>
+            <hr>
+            <ul class="alert alert-success" role="alert">
+                <li>As to save paper, quantity is set to 1</li>
+                <li>Please buy book when requird</li>
+            </ul>
+            <div id="total">
+                <b>Total:</b> {{sub_total}}
+            </div>
+            <hr>
+            <a href="{% url 'receipt' %}" class="btn btn-primary">Check out</a>
+        </div>
+    </div>
     <style>
         #total{
-            font-size: 30px;
+            font-size: 25px;
+            text-align: left;
+        }
+        .table{
+            float: left;
+        }
+        .btn{
+            width: 100%;
         }
     </style>
 {% endblock %}
