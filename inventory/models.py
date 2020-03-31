@@ -48,7 +48,7 @@ class Log(models.Model) :
     date = models.DateTimeField(auto_now_add=True)
     user = models.ForeignKey(Account, on_delete=models.CASCADE)
     book_name = models.ForeignKey(Book, on_delete=models.CASCADE)
-    book_type = models.CharField(max_length=100, editable=False, default='')
+    book_type = models.CharField(max_length=100, editable=False)
 
     def __str__(self):
         return(("{} | {}").format(self.user, self.book_name))

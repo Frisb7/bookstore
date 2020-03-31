@@ -8,24 +8,23 @@
             <th scope="col">Book name</th>
             <th scope="col">Book type</th>
             <th scope="col">Quantity</th>
+            <th scope="col">Cost(Per Book)</th>
             <th scope="col">Cost</th>
         </tr>
         </thead>
         <tbody>
-        {% for item in cart %}
+        {% for book in cart %}
             <tr>
-                <td>{{item.book_name}}</td>
-                <td>{{item.book_type}}</td>
-                <td>{{item.quantity}}</td>
-                <td>{{item.cost}}</td>
+                <td>{{book.book_name}}</td>
+                <td>{{book.book_type}}</td>
+                <td>{{book.quantity}}</td>
+                <td>{{book.cost}}</td>
+                <td>{{book.total_cost}}</td>
             </tr>
         {% endfor %}
-        <td></td>
-        <td></td>
-        <td></td>
-        <td id='total'>{{total_cost}}</td>
         </tbody>
     </table>
+    {{total_cost}}
     <style>
         #total{
             font-size: 30px;
