@@ -17,3 +17,5 @@ There are 4 example users
   email: s@s.com
   password: 1357531s
   it can only open store, cart and receipt page
+
+User can be registered by going to /register/
