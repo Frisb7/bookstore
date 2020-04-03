@@ -3,9 +3,7 @@
 
 ## To open the webiste on any device on your network run the server using
 
-...
-python manage.py runserver 0.0.0.0:8000
-...
+'python manage.py runserver 0.0.0.0:8000'
 
 
 ## There are 4 example users
@@ -22,9 +20,9 @@ python manage.py runserver 0.0.0.0:8000
   password: 1357531t  
   it cant open admin page  
   it cant add or delete books but can update  
-4.Customer  
-  email: s@s.com
-  password: 1357531s
-  it can only open store, cart and receipt page
+4. Customer  
+  email: s@s.com  
+  password: 1357531s  
+  it can only open store, cart and receipt page  
 
 User can be registered by going to /register/
