@@ -1,7 +1,9 @@
 # bookstore
 
 
-## To open the webiste on any device on your network run the server using
+## To open the webiste on any device on your network
+
+add your server ip to Bookstore/settings.py in ALLOWED_HOSTS and sun server using this comand
 
 python manage.py runserver 0.0.0.0:8000
 
