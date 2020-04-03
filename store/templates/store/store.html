@@ -18,8 +18,8 @@
                         <li class="list-group-item"><b>Cost:</b> {{book.cost}}</li>
                     </ul>
                     <div class="card-body">
-                        <a href="" class="btn btn-success disabled">In cart</a>
-                        <a href="{% url 'remove_from_cart' book.id %}" class="btn btn-danger">Remove from cart</a>
+                        <a href="{% url 'cart' %}" class="btn btn-success">In cart</a>
+                        <a href="{% url 'remove_from_cart2' book.id %}" class="btn btn-danger">Remove from cart</a>
                     </div>
                 </div>
             {% else %}

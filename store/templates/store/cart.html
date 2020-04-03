@@ -11,6 +11,7 @@
                 <th scope="col">Quantity</th>
                 <th scope="col">Cost(Per Book)</th>
                 <th scope="col">Cost</th>
+                <th scope="col"></th>
             </tr>
             </thead>
             <tbody>
@@ -21,6 +22,7 @@
                     <td>{{book.quantity}}</td>
                     <td>{{book.cost}}</td>
                     <td>{{book.total_cost}}</td>
+                    <td><a href="{% url 'remove_from_cart2' book.id %}" class="btn btn-danger">Remove</a></td>
                 </tr>
             {% endfor %}
             </tbody>

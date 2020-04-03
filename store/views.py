@@ -47,6 +47,12 @@ def remove_from_cart(request, pk) :
     return(redirect('store'))
 
 @login_required(login_url='login')
+def remove_from_cart2(request, pk) :
+    cart = Cart.objects.get(id=pk, user=request.user)
+    cart.delete()
+    return(redirect('cart'))
+
+@login_required(login_url='login')
 def receipt(request) :
     user = request.user
     cart = Cart.objects.filter(user=user)
