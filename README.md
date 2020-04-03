@@ -1,9 +1,12 @@
 # bookstore
--------
+
+
 ## To open the webiste on any device on your network run the server using
-.:
+
+...
 python manage.py runserver 0.0.0.0:8000
 ...
+
 
 ## There are 4 example users
 1. SUPER:  
