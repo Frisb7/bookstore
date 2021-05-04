@@ -1,5 +1,5 @@
 # bookstore
-
+It is Web app for a bookstore (for a school setting). It uses Python and the Django framwork for the backend. For the front end it uses HTML5 and Bootstrap framework, also a bit of CSS.
 
 ## To open the webiste on any device on your network
 
