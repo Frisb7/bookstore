@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'inventory',
     'store',
     'user_login',
+    'outlook',
 ]
 
 MIDDLEWARE = [

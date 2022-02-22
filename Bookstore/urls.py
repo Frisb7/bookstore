@@ -22,4 +22,5 @@ urlpatterns = [
     path('', include('inventory.urls')),
     path('', include('store.urls')),
     path('', include('user_login.urls')),
+    path('', include('outlook.urls')),
 ]
